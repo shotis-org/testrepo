@@ -1,17 +1,20 @@
 name: testss
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        options:
-          - dev
-          - prod        
 
 jobs:
-  tttt:
+  build:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    steps:
+      - name: test
+        run: 'echo "run"'
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          env: ['dev','prod']
+    environment: ${{ matrix.env }}
     steps:
       - name: test
         run: 'echo "run"'
