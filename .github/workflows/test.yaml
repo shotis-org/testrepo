@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-          env: ['dev','prod']
+          env: ['dev','prod','qa']
     environment: ${{ matrix.env }}
     steps:
       - name: test
