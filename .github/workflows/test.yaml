@@ -1,0 +1,17 @@
+name: testss
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options:
+          - dev
+          - prod        
+
+jobs:
+  tttt:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: test
+        run: 'echo "run"'
